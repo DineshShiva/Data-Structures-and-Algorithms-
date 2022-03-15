@@ -1,51 +1,41 @@
-class funArray:
-    def __init__(self):
-        self.leng =0 
-        self.dis = {}
-        
-    def get(self,index):
-        return self.dis[index]
-    
-    def push(self,value):
-        self.dis[self.leng]=value
-        self.leng+=1
-        
-    def pop(self):
-        del self.dis[self.leng-1]
-        self.leng-=1
-        
-    def delete(self,index):
-        for i in range(index,self.leng-1):
-            self.dis[i] = self.dis[i+1]
-        del self.dis[self.leng-1]
-        self.leng-=1
-        
-    def __str__(self):
-        return str(self.dis)
-    
-    
+strings = ['a','b','c','d']
+# 4*4 = 16 bytes of storage is used
 
-array = funArray()
+print(strings[2])
 
-array.push('d')
+#push  
+strings.append('e')      # O(1)
+#pop  
+strings.pop() 
+strings.pop()            # O(1)
 
-array.push('i')
+#addfirstelement 
+strings.insert(0,'x')    #O(n)
 
-array.push('n')
+#splice
+strings.insert(2,'alien')   #O(n)
 
-array.push('e')
+print(strings)
 
-array.push('s')
+#Array native python methods :-
+#append()	Adds an element at the end of the list
+#clear()	Removes all the elements from the list
+#copy()	Returns a copy of the list
+#count()	Returns the number of elements with the specified value
+#extend()	Add the elements of a list (or any iterable), to the end of the current list
+#index()	Returns the index of the first element with the specified value
+#insert()	Adds an element at the specified position
+#pop()	Removes the element at the specified position
+#remove()	Removes the first item with the specified value
+#reverse()	Reverses the order of the list
+#ort()	Sorts the list
 
-print(array)
+#List objects are implemented as arrays. 
+#They are optimized for fast fixed-length operations and incur O(n) memory movement costs for pop(0) and insert(0, v) 
+#operations which change both the size and position of the underlying data representation.
 
-print(array.get(2))
+#For in depth information on arrays 
+#https://docs.python.org/3/tutorial/datastructures.html
 
-array.pop()
-
-print(array)
-
-array.delete(1)
-
-for i,j in array.dis.items():
-    print(i,j)
+#to implement arrays as a stack 
+#https://docs.python.org/3/library/collections.html#collections.deque
