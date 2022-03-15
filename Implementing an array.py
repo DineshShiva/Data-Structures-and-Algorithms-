@@ -47,5 +47,6 @@ print(array)
 
 array.delete(1)
 
+# printing array of index and value separately.
 for i,j in array.dis.items():
     print(i,j)
