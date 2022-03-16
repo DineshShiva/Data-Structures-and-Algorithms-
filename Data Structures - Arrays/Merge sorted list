@@ -1,0 +1,11 @@
+# merge sorted arrays
+
+array1 = [0,3,4,31]
+
+array2 = [4,6,30,40,50 ,60]
+
+def mergeSortedArrays(arr1,arr2):
+    return sorted(arr1+arr2)
+            
+
+print(mergeSortedArrays(array1,array2))
