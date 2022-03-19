@@ -143,7 +143,20 @@ class LinkedList:
             temp = temp.get_next()
         return None
 
-
+    def reverse(self):
+        if self.head.get_next() is None:
+            return self.head
+        first = self.head
+        self.tail = self.head
+        second = first.get_next()
+        while second is not None:
+            temp = second.get_next()
+            second.set_next(first)
+            first = second
+            second = temp
+        self.head.set_next(None)
+        self.head = first
+        return self
 
 
     
@@ -160,7 +173,7 @@ class LinkedList:
         while temp is not None:
             dataList.append(str(temp.get_data()))
             temp = temp.get_next()
-        return "Linked List : " + " ".join(dataList)
+        print("Linked List : " + " ".join(dataList))
 
 
 myList = LinkedList()
@@ -171,6 +184,12 @@ myList.add(3)
 myList.add(4)
 myList.add(5)
 myList.add(6)
+
+myList.__str__()
+
+myList.reverse()
+
+myList.__str__()
 
 myList.insert(4.5,4)
 
