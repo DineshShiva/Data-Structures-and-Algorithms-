@@ -143,6 +143,18 @@ class LinkedList:
             temp = temp.get_next()
         return None
 
+#Otherwise, we create two nodes first and second which point to the first and second nodes of the list respectively
+#Then we update the tail of the list to point to the head as after reversing the present head will become the last node
+#Then we run a loop until second becmes None
+#Inside the loop we create a temporary node which points to the 'next' of the second node
+#Then we update the 'next' of the second node to point to the first node so that the link is now reversed (2nd node points to 1st node instead of 3rd).
+#And then we will update the first and second nodes to be equal to the second and temporary nodes respectively.
+#What this does is, in the next iteration, 'second' will point to the 3rd node and 'first' to the 2nd
+#And the 'second.next = first' statement will make the 3rd node point to the 2nd node instead of the 4th.
+#And this will go on till 'second' becomes None and by then all the links will be reversed.
+#Finally, we will update the 'next' of the head(which is still the original head) point to None as it is effectively the last node
+#And then we will update the head to be equal to 'first', which by now points to the last node of the original list, and return the now reversed linked list
+#Time complexity pretty clearly will be O(n)
     def reverse(self):
         if self.head.get_next() is None:
             return self.head
